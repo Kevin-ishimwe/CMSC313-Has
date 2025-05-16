@@ -1,21 +1,48 @@
+# CMSC 313 - HW#11: Print out data in ascii hex
+**Kevin Ishimwe**  
+**Mon-Wed 8:30am Section prof kidd**
 
-The purpose of this repository is to 
+## 🔧 Description
+ASSIGNMENT: Produce a program that will take a number of bytes of data and print that data to the screen.
+ 
+DETAILS: Given the following data
+ 
+inputBuf:
+```
+    db  0x83,0x6A,0x88,0xDE,0x9A,0xC3,0x54,0x9A 
+```
 
-1. Have the student access and download a read-only repository off of github.com
-2. Compile and compare the assembly generated for C (addmatsSimple.c and addmatsSubr.c) and
-   C++ (addmats.cpp) programs.
-4. Compile and explain how the C source code relates to the assembly generated for a simple
-   program (basic.c).
+place the translated data into the output buffer
+outputBuf:
+```
+    resb 80 
+```
+ 
+And print the contents of outputBuf to the screen. Remember to advance to the next line at the end of the output buffer.
+ 
+### Example Output:
 
-To have gcc generate the assembly code from a C or C++ program, use the options "-m32 -O0 -S". 
-For example, to generate the assembly code, addmats.s, for the C++ code addmats.cpp, use 
+ ```
+ tkidd1@linux5 ~/work/ 
+$ ./hw11translate2Ascii
+5A 6C 0A 1B 2C 3D 4E 5F
+ 
+tkidd1@linux5 ~/work/ 
+$
+```
 
-  gcc -m32 -O0 -S addmats.cpp 
+# How to Run
+option 1:
+``` 
+sh run.sh
+```
+option2 :
+```
+nasm -f elf32 hw11translate2Ascii.asm -o hw11translate2Ascii.o
+ld -m elf_i386 hw11translate2Ascii.o -o hw11translate2Ascii
+./hw11translate2Ascii
+```
 
-  where 
-    '-m32' forces gcc to generate 32-bit x86 code 
-    '-O0' says no optimization 
-    '-S' says to expose the .s assembly code 
 
 
-    
+# CMSC313-Has
